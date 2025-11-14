@@ -37,7 +37,7 @@ def dashboard(user_id):
     # find_combo_deals returns (product1_dict, product2_dict, score) tuples already
     deals_detail = combo_deals
 
-    return render_template('dashboard.html', 
+    return render_template('promos.html', 
                          klant=klant, 
                          aankoop=aankoop, 
                          deals=deals_detail, 

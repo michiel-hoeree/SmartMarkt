@@ -1,0 +1,222 @@
+        <!-- <div class="col-12 col-lg-6">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h2 class="h5">AI Aanbevelingen (Sklearn)</h2>
+              {% if sklearn_recommendations %}
+              <div class="list-group">
+                {% for product, score in sklearn_recommendations %}
+                <div class="list-group-item">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h3 class="h6 mb-1">
+                      <span class="text-primary">{{ product.naam }}</span>
+                    </h3>
+                  </div>
+                  <p class="mb-0 text-muted">
+                    €{{ product.prijs }} - {{ product.categorie }}
+                  </p>
+                </div>
+                {% endfor %}
+              </div>
+              {% else %}
+              <p class="text-muted mb-0">Geen AI aanbevelingen beschikbaar.</p>
+              {% endif %}
+            </div>
+          </div>
+        </div> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartMarkt - Promos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='promos.css') }}">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <div class="coin-container">
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">$</span>
+          <span class="coin">$</span>
+        </div>
+        <h1>SmartMarkt</h1>
+      </header>
+
+      <main>
+        <div class="promo-container">
+          <div class="promo-stack">
+            {% if sklearn_recommendations %}
+              {% for product, score in sklearn_recommendations %}
+              <div class="promo-card" id="promo{{ loop.index }}" style="{% if loop.index0 != 0 %}display:none;{% endif %}">
+                <!-- <div class="promo-image" style="background-image: url('{{ product.image_url | default(product.image | default('https://via.placeholder.com/500')) }}');">
+                  <div class="discount-badge">{{ product.discount | default(product.korting | default('-')) }}</div>
+                </div> -->
+                <div class="promo-content">
+                  <h2>{{ product.naam }}</h2>
+                  <p class="promo-description">{{ product.beschrijving | default(product.categorie | default('')) }}</p>
+                  <div class="promo-details">
+                    <span class="material-icons">schedule</span>
+                    <span>{{ product.expires_in | default(product.ends_in | default('Today')) }}</span>
+                  </div>
+                  <div class="save-amount">
+                    <span>Save up to</span>
+                    <strong>€{{ product.prijs | default('0.00') }}</strong>
+                  </div>
+                </div>
+                <div class="swipe-overlay">
+                  <div class="accept">ACCEPT</div>
+                  <div class="reject">SKIP</div>
+                </div>
+              </div>
+              {% endfor %}
+            {% else %}
+              <p class="text-muted mb-0">Geen promos beschikbaar.</p>
+            {% endif %}
+          </div>
+
+          <div class="action-buttons">
+            <button class="action-button reject-button">
+              <span class="material-icons">close</span>
+            </button>
+            <button class="action-button accept-button">
+              <span class="material-icons">check</span>
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <nav class="bottom-nav">
+        <a href="homepage.html" class="nav-item">
+          <span class="material-icons">home</span>
+          <span>Home</span>
+        </a>
+        <a href="promos.html" class="nav-item active">
+          <span class="material-icons">local_offer</span>
+          <span>Promos</span>
+        </a>
+        <a href="shopping.html" class="nav-item">
+          <span class="material-icons">shopping_cart</span>
+          <span>Shopping</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+          <span class="material-icons">person</span>
+          <span>Account</span>
+        </a>
+      </nav>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".promo-card");
+        let currentCard = 0;
+
+        // If there are no promo cards, disable action buttons and stop.
+        if (!cards || cards.length === 0) {
+          const acceptBtn = document.querySelector(".accept-button");
+          const rejectBtn = document.querySelector(".reject-button");
+          if (acceptBtn) acceptBtn.disabled = true;
+          if (rejectBtn) rejectBtn.disabled = true;
+          return;
+        }
+
+        cards.forEach((card) => {
+          let startX = 0;
+          let currentX = 0;
+
+          card.addEventListener("touchstart", (e) => {
+            startX = e.touches[0].clientX;
+          });
+
+          card.addEventListener("touchmove", (e) => {
+            currentX = e.touches[0].clientX - startX;
+            card.style.transform = `translateX(${currentX}px) rotate(${
+              currentX * 0.1
+            }deg)`;
+            updateOverlay(card, currentX);
+          });
+
+          card.addEventListener("touchend", (e) => {
+            handleSwipeEnd(card, currentX);
+          });
+        });
+
+        document
+          .querySelector(".accept-button")
+          .addEventListener("click", () => {
+            acceptCard(cards[currentCard]);
+          });
+
+        document
+          .querySelector(".reject-button")
+          .addEventListener("click", () => {
+            rejectCard(cards[currentCard]);
+          });
+
+        function updateOverlay(card, offset) {
+          const overlay = card.querySelector(".swipe-overlay");
+          if (offset > 50) {
+            overlay.classList.add("accept-active");
+            overlay.classList.remove("reject-active");
+          } else if (offset < -50) {
+            overlay.classList.add("reject-active");
+            overlay.classList.remove("accept-active");
+          } else {
+            overlay.classList.remove("accept-active", "reject-active");
+          }
+        }
+
+        function handleSwipeEnd(card, offset) {
+          if (offset > 100) {
+            acceptCard(card);
+          } else if (offset < -100) {
+            rejectCard(card);
+          } else {
+            resetCard(card);
+          }
+        }
+
+        function acceptCard(card) {
+          card.style.transform = "translateX(200%) rotate(20deg)";
+          card.style.opacity = "0";
+          showNextCard();
+        }
+
+        function rejectCard(card) {
+          card.style.transform = "translateX(-200%) rotate(-20deg)";
+          card.style.opacity = "0";
+          showNextCard();
+        }
+
+        function resetCard(card) {
+          card.style.transform = "translateX(0) rotate(0)";
+          card
+            .querySelector(".swipe-overlay")
+            .classList.remove("accept-active", "reject-active");
+        }
+
+        function showNextCard() {
+          setTimeout(() => {
+            cards[currentCard].style.display = "none";
+            currentCard = (currentCard + 1) % cards.length;
+            cards[currentCard].style.display = "block";
+            cards[currentCard].style.transform = "translateX(0) rotate(0)";
+            cards[currentCard].style.opacity = "1";
+          }, 300);
+        }
+      });
+    </script>
+  </body>
+</html>
+
+
+

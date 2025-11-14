@@ -1,113 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PromoGen</title>
-    <link rel="stylesheet" href="homepage.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="homepage.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="app-container">
-        <header>
-            <div class="coin-container">
-                <span class="coin">€</span>
-                <span class="coin">€</span>
-                <span class="coin">€</span>
-                <span class="coin">€</span>
-                <span class="coin">€</span>
-                <span class="coin">€</span>
-                <span class="coin">€</span>
-                <span class="coin">€</span>
-                <span class="coin">$</span>
-                <span class="coin">$</span>
-                <span class="coin">$</span>
-                <span class="coin">$</span>
+      <header>
+        <div class="coin-container">
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">$</span>
+          <span class="coin">$</span>
+          <span class="coin">$</span>
+          <span class="coin">$</span>
+        </div>
+        <h1>SmartMarkt</h1>
+      </header>
+
+      <main>
+        <div class="quick-stats">
+          <div class="stat-card">
+            <span class="stat-number">12</span>
+            <span class="stat-label">Active Promos</span>
+          </div>
+          <div class="stat-card money-saved">
+            <span class="stat-number">€37.54</span>
+            <span class="stat-label">Money Saved</span>
+            <span class="sparkle-icon material-icons">savings</span>
+          </div>
+        </div>
+
+        <div class="quick-actions">
+          <button class="action-button primary">
+            <span class="material-icons">add_circle</span>
+            generate New Promo
+          </button>
+          <button class="action-button secondary">
+            <span class="material-icons">history</span>
+            Recent Promos
+          </button>
+        </div>
+
+        <section class="trending-items">
+          <h2>Trending Items</h2>
+          <div class="items-scroll">
+            <div class="items-grid">
+              <div class="item-card">
+                <div class="discount-badge">-25%</div>
+                <h3>Summer Sale</h3>
+                <p>Valid until Nov 30</p>
+              </div>
+              <div class="item-card">
+                <div class="discount-badge">-15%</div>
+                <h3>New User</h3>
+                <p>First purchase only</p>
+              </div>
+              <div class="item-card">
+                <div class="discount-badge">-40%</div>
+                <h3>Black Friday</h3>
+                <p>Coming soon</p>
+              </div>
+              <div class="item-card">
+                <div class="discount-badge">-30%</div>
+                <h3>Holiday Bundle</h3>
+                <p>Special offer</p>
+              </div>
+              <div class="item-card">
+                <div class="discount-badge">-20%</div>
+                <h3>Weekend Deal</h3>
+                <p>Ends Sunday</p>
+              </div>
+              <div class="item-card">
+                <div class="discount-badge">-50%</div>
+                <h3>Flash Sale</h3>
+                <p>Next 24 hours</p>
+              </div>
             </div>
-            <h1>SmartMarkt</h1>
-        </header>
+          </div>
+        </section>
+      </main>
 
-        <main>
-            <div class="quick-stats">
-                <div class="stat-card">
-                    <span class="stat-number">12</span>
-                    <span class="stat-label">Active Promos</span>
-                </div>
-                <div class="stat-card money-saved">
-                    <span class="stat-number">€37.54</span>
-                    <span class="stat-label">Money Saved</span>
-                    <span class="sparkle-icon material-icons">savings</span>
-                </div>
-            </div>
-
-            <div class="quick-actions">
-                <button class="action-button primary">
-                    <span class="material-icons">add_circle</span>
-                    generate New Promo
-                </button>
-                <button class="action-button secondary">
-                    <span class="material-icons">history</span>
-                    Recent Promos
-                </button>
-            </div>
-
-            <section class="trending-items">
-                <h2>Trending Items</h2>
-                <div class="items-scroll">
-                    <div class="items-grid">
-                        <div class="item-card">
-                            <div class="discount-badge">-25%</div>
-                            <h3>Summer Sale</h3>
-                            <p>Valid until Nov 30</p>
-                        </div>
-                        <div class="item-card">
-                            <div class="discount-badge">-15%</div>
-                            <h3>New User</h3>
-                            <p>First purchase only</p>
-                        </div>
-                        <div class="item-card">
-                            <div class="discount-badge">-40%</div>
-                            <h3>Black Friday</h3>
-                            <p>Coming soon</p>
-                        </div>
-                        <div class="item-card">
-                            <div class="discount-badge">-30%</div>
-                            <h3>Holiday Bundle</h3>
-                            <p>Special offer</p>
-                        </div>
-                        <div class="item-card">
-                            <div class="discount-badge">-20%</div>
-                            <h3>Weekend Deal</h3>
-                            <p>Ends Sunday</p>
-                        </div>
-                        <div class="item-card">
-                            <div class="discount-badge">-50%</div>
-                            <h3>Flash Sale</h3>
-                            <p>Next 24 hours</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <nav class="bottom-nav">
-            <a href="#" class="nav-item active">
-                <span class="material-icons">home</span>
-                <span>Home</span>
-            </a>
-            <a href="#" class="nav-item">
-                <span class="material-icons">local_offer</span>
-                <span>Promos</span>
-            </a>
-            <a href="#" class="nav-item">
-                <span class="material-icons">shopping_cart</span>
-                <span>Shopping</span>
-            </a>
-            <a href="#" class="nav-item">
-                <span class="material-icons">person</span>
-                <span>Account</span>
-            </a>
-        </nav>
+      <nav class="bottom-nav">
+        <a href="homepage.html" class="nav-item active">
+          <span class="material-icons">home</span>
+          <span>Home</span>
+        </a>
+        <a href="promos.html" class="nav-item">
+          <span class="material-icons">local_offer</span>
+          <span>Promos</span>
+        </a>
+        <a href="shopping.html" class="nav-item">
+          <span class="material-icons">shopping_cart</span>
+          <span>Shopping</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+          <span class="material-icons">person</span>
+          <span>Account</span>
+        </a>
+      </nav>
     </div>
-</body>
+  </body>
 </html>

@@ -1,212 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SmartMarkt - Shopping List</title>
-    <link rel="stylesheet" href="shopping.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="shopping.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="app-container">
-        <header>
-            <div class="coin-container">
-                <span class="coin">€</span>
-                <span class="coin">€</span>
-                <span class="coin">€</span>
-                <span class="coin">€</span>
-                <span class="coin">€</span>
-                <span class="coin">€</span>
-                <span class="coin">$</span>
-                <span class="coin">$</span>
-            </div>
-            <h1>SmartMarkt</h1>
-        </header>
-
-        <!-- Progress indicator -->
-        <div class="progress-container">
-            <div class="progress-text">
-                <span>Shopping Progress</span>
-                <span class="progress-percentage">40%</span>
-            </div>
-            <div class="progress-bar">
-                <div class="progress-fill" style="width: 40%"></div>
-            </div>
+      <header>
+        <div class="coin-container">
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">€</span>
+          <span class="coin">$</span>
+          <span class="coin">$</span>
         </div>
+        <h1>SmartMarkt</h1>
+      </header>
 
-        <main>
-            <div class="shopping-container">
-                <!-- Add item form -->
-                <div class="add-item-form">
-                    <input type="text" id="newItem" placeholder="Add item to your list...">
-                    <button class="add-button">
-                        <span class="material-icons">add_circle</span>
-                    </button>
+      <!-- Progress indicator -->
+      <div class="progress-container">
+        <div class="progress-text">
+          <span>Shopping Progress</span>
+          <span class="progress-percentage">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <main>
+        <div class="shopping-container">
+          <!-- Add item form -->
+          <div class="add-item-form">
+            <input
+              type="text"
+              id="newItem"
+              placeholder="Add item to your list..."
+            />
+            <button class="add-button">
+              <span class="material-icons">add_circle</span>
+            </button>
+          </div>
+
+          <!-- Category tabs -->
+          <div class="category-tabs">
+            <button class="tab-button active" data-category="all">
+              <span class="material-icons">list</span>
+              All
+            </button>
+            <button class="tab-button" data-category="groceries">
+              <span class="material-icons">shopping_basket</span>
+              Groceries
+            </button>
+            <button class="tab-button" data-category="household">
+              <span class="material-icons">home</span>
+              Household
+            </button>
+          </div>
+
+          <!-- Shopping list -->
+          <div class="shopping-list">
+            <div class="list-group" data-category="groceries">
+              <div class="list-header">
+                <span class="material-icons">shopping_basket</span>
+                <h2>Groceries</h2>
+              </div>
+              <div class="list-item">
+                <label class="checkbox-container">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                  <span class="item-text">Milk</span>
+                </label>
+                <div class="item-actions">
+                  <span class="promo-tag">-15%</span>
+                  <button class="delete-button">
+                    <span class="material-icons">delete_outline</span>
+                  </button>
                 </div>
-
-                <!-- Category tabs -->
-                <div class="category-tabs">
-                    <button class="tab-button active" data-category="all">
-                        <span class="material-icons">list</span>
-                        All
-                    </button>
-                    <button class="tab-button" data-category="groceries">
-                        <span class="material-icons">shopping_basket</span>
-                        Groceries
-                    </button>
-                    <button class="tab-button" data-category="household">
-                        <span class="material-icons">home</span>
-                        Household
-                    </button>
+              </div>
+              <div class="list-item">
+                <label class="checkbox-container">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                  <span class="item-text">Bread</span>
+                </label>
+                <div class="item-actions">
+                  <button class="delete-button">
+                    <span class="material-icons">delete_outline</span>
+                  </button>
                 </div>
-
-                <!-- Shopping list -->
-                <div class="shopping-list">
-                    <div class="list-group" data-category="groceries">
-                        <div class="list-header">
-                            <span class="material-icons">shopping_basket</span>
-                            <h2>Groceries</h2>
-                        </div>
-                        <div class="list-item">
-                            <label class="checkbox-container">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                                <span class="item-text">Milk</span>
-                            </label>
-                            <div class="item-actions">
-                                <span class="promo-tag">-15%</span>
-                                <button class="delete-button">
-                                    <span class="material-icons">delete_outline</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="list-item">
-                            <label class="checkbox-container">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                                <span class="item-text">Bread</span>
-                            </label>
-                            <div class="item-actions">
-                                <button class="delete-button">
-                                    <span class="material-icons">delete_outline</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="list-group" data-category="household">
-                        <div class="list-header">
-                            <span class="material-icons">home</span>
-                            <h2>Household</h2>
-                        </div>
-                        <div class="list-item">
-                            <label class="checkbox-container">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                                <span class="item-text">Paper Towels</span>
-                            </label>
-                            <div class="item-actions">
-                                <span class="promo-tag">-25%</span>
-                                <button class="delete-button">
-                                    <span class="material-icons">delete_outline</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick actions -->
-                <div class="quick-actions">
-                    <button class="action-button clear-completed">
-                        <span class="material-icons">cleaning_services</span>
-                        Clear Completed
-                    </button>
-                    <button class="action-button sort-items">
-                        <span class="material-icons">sort</span>
-                        Sort by Category
-                    </button>
-                </div>
-
+              </div>
             </div>
-        </main>
 
-        <nav class="bottom-nav">
-            <a href="homepage.html" class="nav-item">
+            <div class="list-group" data-category="household">
+              <div class="list-header">
                 <span class="material-icons">home</span>
-                <span>Home</span>
-            </a>
-            <a href="promos.html" class="nav-item">
-                <span class="material-icons">local_offer</span>
-                <span>Promos</span>
-            </a>
-            <a href="#" class="nav-item active">
-                <span class="material-icons">shopping_cart</span>
-                <span>Shopping</span>
-            </a>
-            <a href="#" class="nav-item">
-                <span class="material-icons">person</span>
-                <span>Account</span>
-            </a>
-        </nav>
+                <h2>Household</h2>
+              </div>
+              <div class="list-item">
+                <label class="checkbox-container">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                  <span class="item-text">Paper Towels</span>
+                </label>
+                <div class="item-actions">
+                  <span class="promo-tag">-25%</span>
+                  <button class="delete-button">
+                    <span class="material-icons">delete_outline</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick actions -->
+          <div class="quick-actions">
+            <button class="action-button clear-completed">
+              <span class="material-icons">cleaning_services</span>
+              Clear Completed
+            </button>
+            <button class="action-button sort-items">
+              <span class="material-icons">sort</span>
+              Sort by Category
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <nav class="bottom-nav">
+        <a href="homepage.html" class="nav-item">
+          <span class="material-icons">home</span>
+          <span>Home</span>
+        </a>
+        <a href="promos.html" class="nav-item">
+          <span class="material-icons">local_offer</span>
+          <span>Promos</span>
+        </a>
+        <a href="shopping.html" class="nav-item active">
+          <span class="material-icons">shopping_cart</span>
+          <span>Shopping</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+          <span class="material-icons">person</span>
+          <span>Account</span>
+        </a>
+      </nav>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Handle checkbox animations
-            document.querySelectorAll('.checkbox-container input').forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    const item = this.closest('.list-item');
-                    if (this.checked) {
-                        item.classList.add('checked');
-                        updateProgress();
-                    } else {
-                        item.classList.remove('checked');
-                        updateProgress();
-                    }
-                });
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelectorAll(".checkbox-container input")
+          .forEach((checkbox) => {
+            checkbox.addEventListener("change", function () {
+              const item = this.closest(".list-item");
+              if (this.checked) {
+                item.classList.add("checked");
+                updateProgress();
+              } else {
+                item.classList.remove("checked");
+                updateProgress();
+              }
             });
+          });
 
-            // Handle category tabs
-            document.querySelectorAll('.tab-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    const category = this.dataset.category;
-                    
-                    if (category === 'all') {
-                        document.querySelectorAll('.list-group').forEach(group => {
-                            group.style.display = 'block';
-                        });
-                    } else {
-                        document.querySelectorAll('.list-group').forEach(group => {
-                            group.style.display = group.dataset.category === category ? 'block' : 'none';
-                        });
-                    }
-                });
-            });
+        document.querySelectorAll(".tab-button").forEach((button) => {
+          button.addEventListener("click", function () {
+            document
+              .querySelectorAll(".tab-button")
+              .forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+            const category = this.dataset.category;
 
-            // Update progress bar
-            function updateProgress() {
-                const total = document.querySelectorAll('.checkbox-container input').length;
-                const checked = document.querySelectorAll('.checkbox-container input:checked').length;
-                const percentage = (checked / total) * 100;
-                
-                document.querySelector('.progress-fill').style.width = `${percentage}%`;
-                document.querySelector('.progress-percentage').textContent = `${Math.round(percentage)}%`;
+            if (category === "all") {
+              document.querySelectorAll(".list-group").forEach((group) => {
+                group.style.display = "block";
+              });
+            } else {
+              document.querySelectorAll(".list-group").forEach((group) => {
+                group.style.display =
+                  group.dataset.category === category ? "block" : "none";
+              });
             }
-
-            // Delete items
-            document.querySelectorAll('.delete-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    const item = this.closest('.list-item');
-                    item.classList.add('deleting');
-                    setTimeout(() => {
-                        item.remove();
-                        updateProgress();
-                    }, 300);
-                });
-            });
+          });
         });
+
+        function updateProgress() {
+          const total = document.querySelectorAll(
+            ".checkbox-container input"
+          ).length;
+          const checked = document.querySelectorAll(
+            ".checkbox-container input:checked"
+          ).length;
+          const percentage = (checked / total) * 100;
+
+          document.querySelector(
+            ".progress-fill"
+          ).style.width = `${percentage}%`;
+          document.querySelector(
+            ".progress-percentage"
+          ).textContent = `${Math.round(percentage)}%`;
+        }
+
+        const addButton = document.querySelector(".add-button");
+        const newItemInput = document.querySelector("#newItem");
+
+        function addNewItem() {
+          const itemText = newItemInput.value.trim();
+          if (itemText === "") return;
+
+          const newItem = document.createElement("div");
+          newItem.className = "list-item new";
+          newItem.innerHTML = `
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              <span class="item-text">${itemText}</span>
+            </label>
+            <div class="item-actions">
+              <button class="delete-button">
+                <span class="material-icons">delete_outline</span>
+              </button>
+            </div>
+          `;
+
+          const firstGroup = document.querySelector(".list-group");
+          firstGroup.appendChild(newItem);
+
+          const checkbox = newItem.querySelector("input[type='checkbox']");
+          checkbox.addEventListener("change", function () {
+            const item = this.closest(".list-item");
+            if (this.checked) {
+              item.classList.add("checked");
+              updateProgress();
+            } else {
+              item.classList.remove("checked");
+              updateProgress();
+            }
+          });
+
+          const deleteBtn = newItem.querySelector(".delete-button");
+          deleteBtn.addEventListener("click", function () {
+            const item = this.closest(".list-item");
+            item.classList.add("deleting");
+            setTimeout(() => {
+              item.remove();
+              updateProgress();
+            }, 300);
+          });
+
+          newItemInput.value = "";
+          updateProgress();
+        }
+
+        addButton.addEventListener("click", addNewItem);
+        newItemInput.addEventListener("keypress", function (e) {
+          if (e.key === "Enter") addNewItem();
+        });
+
+        document.querySelectorAll(".delete-button").forEach((button) => {
+          button.addEventListener("click", function () {
+            const item = this.closest(".list-item");
+            item.classList.add("deleting");
+            setTimeout(() => {
+              item.remove();
+              updateProgress();
+            }, 300);
+          });
+        });
+
+        const clearCompletedBtn = document.querySelector(".clear-completed");
+        clearCompletedBtn.addEventListener("click", function () {
+          const checkedItems = document.querySelectorAll(".list-item.checked");
+          checkedItems.forEach((item) => {
+            item.classList.add("deleting");
+            setTimeout(() => {
+              item.remove();
+              updateProgress();
+            }, 300);
+          });
+        });
+      });
     </script>
-</body>
+  </body>
 </html>

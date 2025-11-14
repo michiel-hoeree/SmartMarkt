@@ -1,0 +1,342 @@
+/* Import base styles from homepage */
+@import url('homepage.css');
+
+/* Override container styles for fixed positioning */
+.app-container {
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-container {
+    position: fixed;
+    top: 60px; /* Adjust based on header height */
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: white;
+    padding: 0.8rem 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+}
+
+main {
+    margin-top: 130px; /* Adjusted for increased header + progress bar spacing */
+    margin-bottom: 65px; /* Adjust based on navbar height */
+    overflow-y: auto;
+    flex: 1;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Shopping container styles */
+.shopping-container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Add item form */
+.add-item-form {
+    display: flex;
+    gap: 0.5rem;
+    background: white;
+    padding: 0.8rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-item-form input {
+    flex: 1;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.add-button {
+    background: none;
+    border: none;
+    color: #2ECC71;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.add-button:hover {
+    background: rgba(46, 204, 113, 0.1);
+    transform: scale(1.1);
+}
+
+/* Category tabs */
+.category-tabs {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    scrollbar-width: none;
+}
+
+.category-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #666;
+    font-size: 0.9rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tab-button.active {
+    background: #4A90E2;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Shopping list */
+.shopping-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.list-group {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.list-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(74, 144, 226, 0.1);
+    color: #4A90E2;
+}
+
+.list-header h2 {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+/* Checkbox styling */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+}
+
+.checkmark {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox-container input {
+    display: none;
+}
+
+.checkbox-container input:checked + .checkmark {
+    background: #2ECC71;
+    border-color: #2ECC71;
+}
+
+.checkbox-container input:checked + .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.item-text {
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.list-item.checked .item-text {
+    color: #999;
+    text-decoration: line-through;
+}
+
+/* Item actions */
+.item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.promo-tag {
+    background: #FF6B6B;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    padding: 0.3rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.delete-button:hover {
+    color: #FF6B6B;
+    background: rgba(255, 107, 107, 0.1);
+}
+
+/* Quick actions */
+.quick-actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.quick-actions .action-button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 12px;
+    background: white;
+    color: #666;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quick-actions .action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Progress bar */
+.progress-container {
+    position: fixed;
+    top: 70px; /* Increased space from header */
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: white;
+    padding: 0.8rem 1rem;
+    box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: 0;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.progress-percentage {
+    color: #4A90E2;
+    font-weight: bold;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #4A90E2, #2ECC71);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* Animations */
+@keyframes deleteItem {
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.list-item.deleting {
+    animation: deleteItem 0.3s ease forwards;
+}
+
+@keyframes addItem {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.list-item.new {
+    animation: addItem 0.3s ease forwards;
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartMarkt - Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="coin-container">
+                <span class="coin">€</span>
+                <span class="coin">€</span>
+                <span class="coin">€</span>
+                <span class="coin">€</span>
+                <span class="coin">€</span>
+                <span class="coin">€</span>
+                <span class="coin">$</span>
+                <span class="coin">$</span>
+            </div>
+            <h1>SmartMarkt</h1>
+        </header>
+
+        <main>
+            <div class="profile-container">
+                <!-- Profile Header -->
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <span class="material-icons">account_circle</span>
+                        <div class="level-badge">Level 12</div>
+                    </div>
+                    <h2>Sarah Johnson</h2>
+                    <p class="profile-subtitle">Smart Shopper since 2024</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card savings">
+                        <div class="stat-icon">
+                            <span class="material-icons">savings</span>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">€1,245</span>
+                            <span class="stat-label">Total Savings</span>
+                        </div>
+                    </div>
+                    <div class="stat-card promos">
+                        <div class="stat-icon">
+                            <span class="material-icons">local_offer</span>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">83</span>
+                            <span class="stat-label">Promos Used</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement Section -->
+                <section class="achievements">
+                    <h3>Recent Achievements</h3>
+                    <div class="achievement-list">
+                        <div class="achievement-item">
+                            <div class="achievement-icon gold">
+                                <span class="material-icons">star</span>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Super Saver</h4>
+                                <p>Saved over €1000 in total</p>
+                            </div>
+                            <span class="material-icons chevron">chevron_right</span>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon silver">
+                                <span class="material-icons">shopping_cart</span>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Shopping Pro</h4>
+                                <p>Completed 50 shopping lists</p>
+                            </div>
+                            <span class="material-icons chevron">chevron_right</span>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon bronze">
+                                <span class="material-icons">flash_on</span>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Quick Picker</h4>
+                                <p>Used 10 flash deals</p>
+                            </div>
+                            <span class="material-icons chevron">chevron_right</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Personalized Section -->
+                <section class="personalized">
+                    <h3>Your Shopping Style</h3>
+                    <div class="style-card">
+                        <div class="style-header">
+                            <span class="material-icons">analytics</span>
+                            <h4>Shopping Pattern</h4>
+                        </div>
+                        <div class="style-stats">
+                            <div class="style-stat">
+                                <span class="label">Most Active Day</span>
+                                <span class="value">Saturday</span>
+                            </div>
+                            <div class="style-stat">
+                                <span class="label">Favorite Category</span>
+                                <span class="value">Electronics</span>
+                            </div>
+                            <div class="style-stat">
+                                <span class="label">Average Savings</span>
+                                <span class="value">22%</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Quick Access -->
+                <section class="quick-settings">
+                    <div class="settings-item">
+                        <span class="material-icons">notifications</span>
+                        <span>Notifications</span>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-item">
+                        <span class="material-icons">location_on</span>
+                        <span>Location Services</span>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <a href="homepage.html" class="nav-item">
+                <span class="material-icons">home</span>
+                <span>Home</span>
+            </a>
+            <a href="promos.html" class="nav-item">
+                <span class="material-icons">local_offer</span>
+                <span>Promos</span>
+            </a>
+            <a href="shopping.html" class="nav-item">
+                <span class="material-icons">shopping_cart</span>
+                <span>Shopping</span>
+            </a>
+            <a href="#" class="nav-item active">
+                <span class="material-icons">person</span>
+                <span>Account</span>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation to stats when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            });
+
+            document.querySelectorAll('.stat-card').forEach((card) => {
+                observer.observe(card);
+            });
+
+            // Achievement item click animation
+            document.querySelectorAll('.achievement-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    item.classList.add('pulse');
+                    setTimeout(() => {
+                        item.classList.remove('pulse');
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

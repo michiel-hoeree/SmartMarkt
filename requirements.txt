@@ -1,4 +1,4 @@
 pandas
 flask
 numpy
-scikit-learns
+scikit-learn

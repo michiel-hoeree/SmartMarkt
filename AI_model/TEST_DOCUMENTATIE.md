@@ -1,11 +1,5 @@
 # Performance en Data Validatie Test - Documentatie
 
-## Overzicht
-
-Test Bestand: test_performance.py  
-Status: ALLE TESTS GESLAAGD (5/5)  
-Uitvoeringstijd: 0.087 seconden
-
 ## Test Resultaten
 
 | Test Naam                          | Status | Beschrijving                         |
